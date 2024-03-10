@@ -1,4 +1,4 @@
-name: Linter check and cppcheck
+name: Linter check, cppcheck, and code coverage
 
 on:
   push:
@@ -13,12 +13,20 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install build essentials and clang-format
+    - name: Install build essentials, clang-format, cppcheck, lcov, libgtest-dev, and xmake
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential clang-format cppcheck
+        sudo apt-get install -y build-essential clang-format cppcheck lcov libgtest-dev
+        bash <(curl -fsSL https://xmake.io/shget.text)
 
     - name: Run lint
       run: clang-format -i --style=Google **/*.cpp **/*.h
+
     - name: Run cppcheck
       run: cppcheck --language=c++ **/*.cpp **/*.h
+
+    - name: Run build and tests with xmake
+      run: |
+        xmake config -P . -m release
+        xmake build -P . -g test
+        xmake run -P . -g test
