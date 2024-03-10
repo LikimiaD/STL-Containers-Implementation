@@ -20,7 +20,7 @@ jobs:
         bash <(curl -fsSL https://xmake.io/shget.text)
 
     - name: Run lint
-      run: clang-format -i --style=Google **/*.cpp **/*.h
+      run: clang-format -n --style=Google **/*.cpp **/*.h
 
     - name: Run cppcheck
       run: cppcheck --language=c++ **/*.cpp **/*.h
