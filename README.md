@@ -1,5 +1,8 @@
 # STL Container Implementation
 
+![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+
 ## Overview
 This project is a custom implementation of the Standard Template Library (STL) containers in C++. It aims to replicate the functionality of various STL containers such as vectors, lists, maps, sets, and more, adhering closely to their original logic and behavior. This implementation is done in compliance with the C++17 standard and follows the Google coding style guidelines.
 
